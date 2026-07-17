@@ -2,7 +2,7 @@
 train.py
 
 Part 1
-- Load MNIST (loads the mist daaset from pytorch)
+- Load MNIST (loads the mnist daaset from pytorch)
 - Create DataLoaders (they are functions that load images and labels more efficiently)
 - Inspect the dataset(using the matplotlib.pyplot library to check if the image matches the label)
 """
@@ -39,7 +39,7 @@ train_dataset = datasets.MNIST(
 )
 
 # -------------------------------------------------------
-# Load Test Dataset (loads a dataset of 10,000 MNIST imahes from the pytorch library used to test our model after training)
+# Load Test Dataset (loads a dataset of 10,000 MNIST images from the pytorch library used to test our model after training)
 # -------------------------------------------------------
 
 test_dataset = datasets.MNIST(
@@ -50,7 +50,8 @@ test_dataset = datasets.MNIST(
 )
 
 # -------------------------------------------------------
-# DataLoaders (we set up two dataloaders, one for training and one for testing with the batch size we specified earlier and tell the loader the shuffle the order of the images for training set but not the testing set.)
+# DataLoaders (we set up two dataloaders, one for training and one for testing with the batch size we specified ...
+# earlier and tell the loader the shuffle the order of the images for training set but not the testing set.)
 # -------------------------------------------------------
 
 train_loader = DataLoader(
@@ -135,7 +136,9 @@ NUM_EPOCHS = 10
 model = MNISTClassifier().to(device)
 
 # -------------------------------------------------------
-# Loss Function ( CrossEntropyLoss measures how different the model's predicted class scores are from the true labels. During loss.backward(), PyTorch automatically computes the gradients of this loss with respect to all trainable parameters. The optimizer then uses these gradients to update the parameters and reduce the loss.
+# Loss Function ( CrossEntropyLoss measures how different the model's predicted class scores are from the true labels...
+# During loss.backward(), PyTorch automatically computes the gradients of this loss with respect to all trainable parameters... 
+# The optimizer then uses these gradients to update the parameters and reduce the loss.
 # -------------------------------------------------------
 
 criterion = torch.nn.CrossEntropyLoss()
@@ -189,7 +192,10 @@ print(f"Output Shape : {outputs.shape}")
 print()
 
 # -------------------------------------------------------
-# Predicted Classes (Here we see the predictions of our model after only 128 images have gone through one foreward pass. the predictions are very off . uncomment next section to see test predictions) then we calculate the loss using the crossentropy we defined above and get our final loss
+# Predicted Classes 
+(Here we see the predictions of our model after only 128 images have gone through one foreward pass...
+the predictions are very off . uncomment next section to see test predictions)... 
+then we calculate the loss using the crossentropy we defined above and get our final loss
 # -------------------------------------------------------
 
 '''predictions = torch.argmax(outputs, dim=1)
@@ -223,7 +229,7 @@ print(f"Initial Loss : {loss.item():.4f}")
 
 
 # ------------------------------------------------------------
-# Training Configuration (tis creates a folder called checkpoints which tracks loss and accuracy)
+# Training Configuration (this creates a folder called checkpoints which tracks loss and accuracy)
 # ------------------------------------------------------------
 
 SAVE_DIR = Path("checkpoints")
